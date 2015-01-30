@@ -4,7 +4,7 @@ db_config_file = File.expand_path('../../config/database.yml', __FILE__)
 encryption_config_file = File.expand_path('../../config/symmetric-encryption.yml', __FILE__)
 
 ActiveRecord::Base.configurations = YAML::load(ERB.new(IO.read(db_config_file)).result)
-ActiveRecord::Base.establish_connection('test')
+ActiveRecord::Base.establish_connection(:test)
 
 ActiveRecord::Schema.define(version: 0) do
   create_table :widgets, force: true do |t|
